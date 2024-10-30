@@ -17,13 +17,14 @@ export const Button = forwardRef<TouchableOpacity, ButtonProps>(
 
 const styles = StyleSheet.create({
   button: {
+    width: 180,
     alignItems: 'center',
-    backgroundColor: '#6366F1',
-    borderRadius: 24,
+    backgroundColor: '#99c4cb',
+    borderRadius: 20,
     elevation: 5,
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 16,
+    padding: 20,
     shadowColor: '#000',
     shadowOffset: {
       height: 2,
@@ -33,9 +34,9 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   buttonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
+    color: "#1e3a45",
+    fontSize: 18,
+    fontWeight: '800',
     textAlign: 'center',
   },
 });
