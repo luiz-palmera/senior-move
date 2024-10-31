@@ -3,20 +3,24 @@ import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react
 
 type ButtonProps = {
   title?: string;
+  variant?: string;
 } & TouchableOpacityProps;
 
 export const Button = forwardRef<TouchableOpacity, ButtonProps>(
-  ({ title, ...touchableProps }, ref) => {
+  ({ title, variant, ...touchableProps }, ref) => {
     return (
-      <TouchableOpacity ref={ref} {...touchableProps} style={[styles.button, touchableProps.style]}>
-        <Text style={styles.buttonText}>{title}</Text>
+      <TouchableOpacity
+        ref={ref} {...touchableProps}
+        style={[variant === 'outlined' ? styles.outlinedButton : styles.defaultButton, touchableProps.style]}
+      >
+        <Text style={variant === 'outlined' ? styles.outlinedButtonText : styles.defaultButtonText}>{title}</Text>
       </TouchableOpacity>
     );
   }
 );
 
 const styles = StyleSheet.create({
-  button: {
+  defaultButton: {
     width: 180,
     alignItems: 'center',
     backgroundColor: '#99c4cb',
@@ -33,8 +37,31 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
-  buttonText: {
-    color: "#1e3a45",
+  defaultButtonText: {
+    color: '#1e3a45',
+    fontSize: 18,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
+  outlinedButton: {
+    width:180,
+    alignItems: 'center',
+    borderColor: '#99c4cb',
+    borderWidth: 4,
+    borderRadius: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      height: 2,
+      width: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  outlinedButtonText: {
+    color: '#99c4cb',
     fontSize: 18,
     fontWeight: '800',
     textAlign: 'center',
