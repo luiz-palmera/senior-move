@@ -1,5 +1,5 @@
 import { View,Text, StyleSheet, Image } from "react-native";
-import { Button } from "./Button";
+import { Button } from "../components/Button";
 
 
 export const WelcomeScreen = () => {
