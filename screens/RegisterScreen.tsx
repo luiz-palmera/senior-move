@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native"
+import { Input } from "@/components/ui/input"
 
     
 export const RegisterScreen = () => {
