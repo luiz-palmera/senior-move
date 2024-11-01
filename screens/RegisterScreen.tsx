@@ -1,11 +1,23 @@
 import { StyleSheet, Text, View } from "react-native"
-import { Input } from "@/components/ui/input"
+import { Input, InputField } from "@/components/ui/input"
+import { VStack } from "@/components/ui/vstack/index.web"
+import { Heading } from "@/components/ui/heading"
+import { FormControl } from "@/components/ui/form-control"
 
     
 export const RegisterScreen = () => {
     return(
-        <View style={styles.container}>
+        <FormControl>
+      <View>
+        <Heading className="text-typography-900 leading-3">Login</Heading>
+        <View>
+          <Text className="text-typography-500 leading-1">Email</Text>
+          <Input>
+            <InputField type="text" />
+          </Input>
         </View>
+    </View>
+    </FormControl>
     )
 }
 

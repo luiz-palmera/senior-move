@@ -1013,6 +1013,11 @@
     dotenv-expand "~11.0.6"
     getenv "^1.0.0"
 
+"@expo/html-elements@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@expo/html-elements/-/html-elements-0.4.2.tgz#4e9f6b9250af8d0befe3242fd42704cca2421e0e"
+  integrity sha512-lNioCgdtOrCMMqzHY+PCTdyuWBTU4yMBlOzPSkS4YFIWt9bq0zexM2ZJkpybTXmowNdE3zHO93xxAmiA2yDi2w==
+
 "@expo/image-utils@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@expo/image-utils/-/image-utils-0.5.1.tgz#06fade141facebcd8431355923d30f3839309942"
@@ -1196,6 +1201,15 @@
   dependencies:
     tslib "2"
 
+"@gluestack-ui/button@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/button/-/button-1.0.7.tgz#513c42b895f285b527969f7dde9abc7f622d7905"
+  integrity sha512-6hz5BPoB+iHMpDvys6AbIpeRPbnFiqyE3SnnbKPSCj8lgl3Dr9sFln41BvDmqmZ98d0usJluk50rz8pVNRZRgw==
+  dependencies:
+    "@gluestack-ui/utils" "0.1.13"
+    "@react-native-aria/focus" "^0.2.9"
+    "@react-native-aria/interactions" "0.2.13"
+
 "@gluestack-ui/form-control@^0.1.18":
   version "0.1.18"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/form-control/-/form-control-0.1.18.tgz#68246259a805a15def61a174a29cf7bc15524f73"
@@ -1278,7 +1292,7 @@
     "@gluestack-ui/utils" "^0.1.9"
     "@react-native-aria/focus" "^0.2.7"
 
-"@gluestack-ui/utils@^0.1.12", "@gluestack-ui/utils@^0.1.13", "@gluestack-ui/utils@^0.1.9":
+"@gluestack-ui/utils@0.1.13", "@gluestack-ui/utils@^0.1.12", "@gluestack-ui/utils@^0.1.13", "@gluestack-ui/utils@^0.1.9":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/utils/-/utils-0.1.13.tgz#f3fb9013ef2ed3994c2b486a317203ccaceb210a"
   integrity sha512-L9+ddAn5FLtNJYut7KBGChelt+SvDW3C+6dXduZyP9DD1BoDVTRVwPVYblvbefZf2ZOdTALtHIIO3n/n1bWlbg==
