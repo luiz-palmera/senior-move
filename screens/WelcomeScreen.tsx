@@ -1,8 +1,11 @@
 import { View,Text, StyleSheet, Image } from "react-native";
-import { Button } from "../components/Button";
+import { useNavigation } from "@react-navigation/native";
+import { Button } from "~/components/Button";
+import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
 
 
 export const WelcomeScreen = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<any>>();
     return(
         <View style={styles.container}>
             <Image
@@ -13,6 +16,7 @@ export const WelcomeScreen = () => {
             />
             <Button
                 title="CADASTRE-SE"
+                onPress={() => navigation.navigate('Register')}
             />
             <View style={styles.separator} />
             <Text style={styles.loginText}>
@@ -31,7 +35,6 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         marginTop: 30,
     },
-
     container: {
         flex: 1,
         padding: 0,
@@ -39,28 +42,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white'
     },
-
    image: {
         width: 400,
         height: 400,
    },
-
    loginText: {
         fontSize: 20,
         fontWeight: '600',
         color: '#1e3a45',
    },
-
-   loginLink: {
-        fontSize: 20,
-        textDecorationLine: 'underline',
-        color: '#98c3ca'
-   },
-
    separator: {
         backgroundColor: '#d1d5db',
         height: 1,
         marginVertical: 20,
         width: '90%',
-   }
+    },
+   loginLink: {
+        fontSize: 20,
+        textDecorationLine: 'underline',
+        color: '#98c3ca'
+   },
 })

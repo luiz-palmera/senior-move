@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   defaultButtonText: {
-    color: '#1e3a45',
+    color: 'white',
     fontSize: 18,
     fontWeight: '800',
     textAlign: 'center',
