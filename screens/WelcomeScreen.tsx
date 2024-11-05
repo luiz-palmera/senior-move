@@ -1,13 +1,42 @@
-import { View,Text, StyleSheet, Image } from "react-native";
+import { 
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    KeyboardAvoidingView,
+    Platform, 
+    TouchableOpacity
+ } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "~/components/Button";
-import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
+import { SvgXml } from "react-native-svg";
+import { waves } from "~/svg/waves";
+import { useState } from "react";
+import { Dialog } from "react-native-paper";
+
+
 
 
 export const WelcomeScreen = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<any>>();
+    const navigation = useNavigation<any>();
+
+    const [visible, setVisible] = useState(false)
+
+    const showDialog = () => setVisible(true);
+    const hideDialog = () => setVisible(false);
+
     return(
+
         <View style={styles.container}>
+            <Dialog
+                visible={visible}
+                onDismiss={hideDialog}
+            >
+                <Dialog.Content>
+                  <Text>Teste</Text>  
+                </Dialog.Content>
+            </Dialog>
+            <SvgXml xml={waves} style={styles.topCurve}/>
             <Image
                 style={styles.image}
                 source={{
@@ -22,14 +51,47 @@ export const WelcomeScreen = () => {
             <Text style={styles.loginText}>
                   Já possui uma conta?
             </Text>
-            <Text style={styles.loginLink}>
-                Entre aqui!
-            </Text>
+            <TouchableOpacity onPress={() => console.log("teste")}>
+                <Text style={styles.loginLink}>
+                    Entre aqui!
+                </Text>
+            </TouchableOpacity>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.curveWrapper}
+            >
+                <SvgXml xml={waves} style={styles.bottomCurve}/>
+            </KeyboardAvoidingView>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    bottomCurve:{
+        position: 'absolute',
+        height: 130,
+        width: '180%',
+        bottom: -90,
+        zIndex: 10,
+        alignSelf: 'flex-end',
+        transform: [{ rotate: '180deg'}],
+        right: -200
+    },
+    topCurve:{
+        position: 'absolute',
+        height: 120,
+        width: '150%',
+        top: 0,
+        zIndex: 10,
+        alignSelf: 'flex-end',
+        transform: [{ rotate: '0deg'}],
+        right: -20
+    },
+    curveWrapper:{
+        position: 'relative',
+        paddingTop: 0,
+        zIndex:-20,
+    },
     title: {
         fontSize: 30,
         fontWeight: '800',
