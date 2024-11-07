@@ -37,10 +37,16 @@ export const RegisterStepTwo = () => {
                 </View>
                 <Button
                     title="PRÓXIMO"
-                    onPress={() => navigation.navigate('Welcome')}
+                    onPress={() => navigation.navigate('StepThree')}
                     style={styles.button}
                 />
             </View>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.curveWrapper}
+            >
+                <SvgXml xml={waves} style={styles.bottomCurve}/>
+            </KeyboardAvoidingView>
         </View>
     )
 }
@@ -53,11 +59,18 @@ const styles = StyleSheet.create({
     },
     bottomCurve:{
         position: 'absolute',
-        width: '100%',
-        bottom: -100,
+        height: 130,
+        width: '180%',
+        bottom: -350,
+        zIndex: 10,
         alignSelf: 'flex-end',
-        zIndex: 0,
-        right: -90
+        transform: [{ rotate: '180deg'}],
+        right: -200
+    },
+    curveWrapper:{
+        position: 'relative',
+        paddingTop: 0,
+        zIndex:-20,
     },
     topCurve:{
         position: 'absolute',

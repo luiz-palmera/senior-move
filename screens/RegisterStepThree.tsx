@@ -1,61 +1,80 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View } from "react-native"
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, View } from "react-native"
 import { TextInput } from "react-native-paper"
 import { SvgXml } from "react-native-svg";
 import { Button } from "~/components/Button"
+import { waveHaikiei } from "~/svg/wave-haikei";
 import { waves } from "~/svg/waves";
     
-export const RegisterScreen = () => {
+export const RegisterStepThree = () => {
     const navigation = useNavigation<any>();
     return(
         <View style={{backgroundColor: 'white', width:'100%', height: '100%'}}>
             <SvgXml xml={waves} style={styles.topCurve}/>
             <Text style={styles.title}>
-                Primeiro passo
+                Terceiro passo
             </Text>
             <View style={styles.container}>
                 <View style={styles.separator} />
-                    <Text style={styles.subtitle}>Dados pessoais</Text>
+                    <Text style={styles.subtitle}>Informações login</Text>
                 <View style={styles.separator} />
             </View>
             <View>
                 <TextInput
-                    label= "Nome"
-                    style={styles.input}
-                    mode="outlined"
-                    activeOutlineColor="#98c3ca"
+                        label= "E-mail"
+                        style={styles.input}
+                        mode="outlined"
+                        activeOutlineColor="#98c3ca"
                 />
                 <TextInput
-                    label= "Telefone"
-                    style={styles.input}
-                    mode="outlined"
-                    activeOutlineColor="#98c3ca"
+                        label= "Senha"
+                        style={styles.input}
+                        mode="outlined"
+                        activeOutlineColor="#98c3ca"
                 />
-                <View style={styles.inputWrapper}>
-                    <TextInput
-                        label= "CPF"
-                        style={styles.inputSide}
+                <TextInput
+                        label= "Confirmar Senha"
+                        style={styles.input}
                         mode="outlined"
                         activeOutlineColor="#98c3ca"
-                    />
-                    <TextInput
-                        label= "Data Nascimento"
-                        style={styles.inputSide}
-                        mode="outlined"
-                        activeOutlineColor="#98c3ca"
-                    />
-                </View>
+                />
                 <Button
-                    title="PRÓXIMO"
-                    onPress={() => navigation.navigate('StepTwo')}
+                    title="CONCLUIR"
+                    onPress={() => navigation.navigate('StepThree')}
                     style={styles.button}
                 />
             </View>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.curveWrapper}
+            >
+                <SvgXml xml={waves} style={styles.bottomCurve}/>
+            </KeyboardAvoidingView>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    button: {
+        alignSelf: 'center',
+        marginTop: 40,
+        width: '80%'
+    },
+    bottomCurve:{
+        position: 'absolute',
+        height: 130,
+        width: '180%',
+        bottom: -170,
+        zIndex: 10,
+        alignSelf: 'flex-end',
+        transform: [{ rotate: '180deg'}],
+        right: -200
+    },
+    curveWrapper:{
+        position: 'relative',
+        paddingTop: 0,
+        zIndex:-20,
+    },
     topCurve:{
         position: 'absolute',
         height: 80,
@@ -63,11 +82,6 @@ const styles = StyleSheet.create({
         top: 0,
         alignSelf: 'flex-end',
         right: -80
-    },
-    button: {
-        alignSelf: 'center',
-        marginTop: 40,
-        width: '80%'
     },
     title: {
         fontSize: 30,
@@ -107,7 +121,7 @@ const styles = StyleSheet.create({
    separator: {
         backgroundColor: '#98c3ca',
         height: 1,
-        width: '27%',
+        width: '23%',
         alignSelf: 'center'
     },
 })

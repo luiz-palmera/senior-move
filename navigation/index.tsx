@@ -1,3 +1,4 @@
+import { RegisterStepThree } from '@/screens/RegisterStepThree';
 import { RegisterStepTwo } from '@/screens/RegisterStepTwo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,6 +11,7 @@ export type RootStackParamList = {
   Welcome: undefined;
   Register: undefined;
   StepTwo: undefined;
+  StepThree: undefined;
   Details: { name: string };
 };
 
@@ -35,19 +37,37 @@ export default function RootStack() {
             headerLeft: () => <BackButton onPress={navigation.goBack} />,
           })} />
           <Stack.Screen 
-          name="StepTwo" 
-          component={RegisterStepTwo} 
-          options={({ navigation }) => ({
-            headerStyle: {
-              backgroundColor: '#98c3ca',
-            },
-            headerTitle: 'Cadastro',
-            headerTitleStyle:{
-              paddingBottom:2,
-              color: 'white',
-            },
-            headerLeft: () => <BackButton onPress={navigation.goBack} />,
-          })} />
+            name="StepTwo" 
+            component={RegisterStepTwo} 
+            options={({ navigation }) => ({
+              headerStyle: {
+                backgroundColor: '#98c3ca',
+              },
+              headerTitle: 'Cadastro',
+              headerTitleStyle:{
+                paddingBottom:2,
+                color: 'white',
+              },
+              headerLeft: () => <BackButton onPress={navigation.goBack} 
+            />,
+          })} 
+          />
+          <Stack.Screen 
+            name="StepThree" 
+            component={RegisterStepThree} 
+            options={({ navigation }) => ({
+              headerStyle: {
+                backgroundColor: '#98c3ca',
+              },
+              headerTitle: 'Cadastro',
+              headerTitleStyle:{
+                paddingBottom:2,
+                color: 'white',
+              },
+              headerLeft: () => <BackButton onPress={navigation.goBack} 
+            />,
+          })} 
+          />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   },
   outlinedButton: {
     width:180,
+    backgroundColor: 'white',
     alignItems: 'center',
     borderColor: '#99c4cb',
     borderWidth: 4,
