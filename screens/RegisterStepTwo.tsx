@@ -3,7 +3,6 @@ import { KeyboardAvoidingView, Platform, StyleSheet, Text, View } from "react-na
 import { TextInput } from "react-native-paper"
 import { SvgXml } from "react-native-svg";
 import { Button } from "~/components/Button"
-import { waveHaikiei } from "~/svg/wave-haikei";
 import { waves } from "~/svg/waves";
     
 export const RegisterStepTwo = () => {

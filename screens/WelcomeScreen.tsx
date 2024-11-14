@@ -28,15 +28,18 @@ export const WelcomeScreen = () => {
 
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
+    const login = () => {
+        setVisible(false)
+        navigation.navigate('MainScreen');
+    }
 
     return(
-
         <View style={styles.container}>
                 <Modal
                     visible={visible}
                     style={styles.modal}
                     transparent={true}
-                    animationType="fade"
+                    animationType='fade'
                 >
                     <Pressable onPress={hide} style={styles.modalbackdrop}/>
                     <View style={styles.modal}>
@@ -47,7 +50,7 @@ export const WelcomeScreen = () => {
                                 <Icon
                                     source={'close-circle'}
                                     size={50}
-                                    color="#FF746C"    
+                                    color='#FF746C'    
                                 />
                             </TouchableOpacity>
                             <View style={styles.loginImageWrapper}>    
@@ -60,25 +63,25 @@ export const WelcomeScreen = () => {
                             </View>
                             <View style={styles.inputWrapper}>
                                 <TextInput
-                                    label= "E-mail / Telefone"
+                                    label= 'E-mail / Telefone'
                                     style={styles.input}
-                                    mode="outlined"
+                                    mode='outlined'
                                     activeOutlineColor="#98c3ca"
                                 />
                                 <TextInput
-                                    label= "Senha"
+                                    label= 'Senha'
                                     secureTextEntry
-                                    right={<TextInput.Icon icon="eye" />}
+                                    right={<TextInput.Icon icon='eye' color={'#98c3ca'} />}
                                     style={styles.input}
-                                    mode="outlined"
-                                    activeOutlineColor="#98c3ca"
+                                    mode='outlined'
+                                    activeOutlineColor='#98c3ca'
                                 />
                             </View>
                             <Button
-                                title="Entrar"
-                                onPress={hide} 
+                                title='Entrar'
+                                onPress={login} 
                                 style={styles.button}
-                                variant="outlined"
+                                variant='outlined'
                             />
                             <View style={styles.separatorWrapper}>
                                 <View style={styles.separatorLogin} />
@@ -92,14 +95,14 @@ export const WelcomeScreen = () => {
                                 <Icon
                                     source={'google'}
                                     size={50}
-                                    color="white"    
+                                    color='white'   
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.facebookIcon}>
                                 <Icon
                                     source={'facebook'}
                                     size={50}
-                                    color="white"    
+                                    color='white'    
                                 />
                             </TouchableOpacity>
                         </View>
@@ -113,7 +116,7 @@ export const WelcomeScreen = () => {
                     }}
                 />
             <Button
-                title="CADASTRE-SE"
+                title='CADASTRE-SE'
                 onPress={() => navigation.navigate('Register')}
             />
             <View style={styles.separator} />
@@ -167,7 +170,7 @@ const styles = StyleSheet.create({
     otherLoginContainer:{
         backgroundColor: '#98c3ca', 
         width: '100%', 
-        height: "27%", 
+        height: '27%', 
         position: 'absolute', 
         zIndex: -3000, 
         bottom:0, 
@@ -261,7 +264,6 @@ const styles = StyleSheet.create({
    },
    imageLogin: {
         position: 'absolute',
-        // left: 193,
         width: 230,
         height: 230,
     },
@@ -286,6 +288,7 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection: 'row',
         gap: 10,
+
         justifyContent: 'center',
     },
     separatorLogin: {

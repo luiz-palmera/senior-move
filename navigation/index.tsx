@@ -1,3 +1,4 @@
+import { MainScreen } from '@/screens/MainScreen';
 import { RegisterStepThree } from '@/screens/RegisterStepThree';
 import { RegisterStepTwo } from '@/screens/RegisterStepTwo';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,6 +13,7 @@ export type RootStackParamList = {
   Register: undefined;
   StepTwo: undefined;
   StepThree: undefined;
+  MainScreen: undefined;
   Details: { name: string };
 };
 
@@ -67,6 +69,11 @@ export default function RootStack() {
               headerLeft: () => <BackButton onPress={navigation.goBack} 
             />,
           })} 
+          />
+          <Stack.Screen
+            name='MainScreen'
+            component={MainScreen}
+            options={{headerShown: false}}
           />
       </Stack.Navigator>
     </NavigationContainer>
